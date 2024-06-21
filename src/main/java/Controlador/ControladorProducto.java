@@ -1,6 +1,8 @@
 package Controlador;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,10 +33,13 @@ public class ControladorProducto extends HttpServlet {
 		
 		TblProductocl2 producto=new TblProductocl2();
 		TblProductoimp crud=new TblProductoimp();
+		List<TblProductocl2>listadoproducto = crud.ListarProducto();
 		
 
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		request.setAttribute("listadoproductos", listadoproducto);
+		
 	}
 
 	/**
@@ -61,6 +66,8 @@ public class ControladorProducto extends HttpServlet {
 		crud.RegistrarProducto(producto);
 		
 		
+		List<TblProductocl2>listadoproducto = crud.ListarProducto();
+		request.setAttribute("listadoproductos", listadoproducto);
 		
 		
 		request.getRequestDispatcher("/ListadoProductos.jsp").forward(request, response);

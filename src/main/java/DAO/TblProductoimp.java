@@ -34,7 +34,7 @@ public class TblProductoimp implements IProducto {
 
 	public List<TblProductocl2> ListarProducto() {
 		// TODO Auto-generated method stub
-		EntityManagerFactory fab = Persistence.createEntityManagerFactory("ProyectoMavenJpaLPII");
+		EntityManagerFactory fab = Persistence.createEntityManagerFactory("LPII_CL2_BRONCANOALDAIR");
 		//gestionamos las entidades
 		EntityManager em=fab.createEntityManager();
 		//iniciamos la tran
